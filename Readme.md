@@ -14,7 +14,7 @@ L’objectif principal de Cinetrack est de proposer une plateforme fluide et per
 - Gérer les comptes utilisateurs (inscription, connexion, profil),  
 - Enregistrer les likes et favoris,  
 - (À venir) Générer des **recommandations personnalisées** basées sur les goûts des utilisateurs,  
-- Rediriger vers les plateformes de streaming légales (Netflix, Prime Video, etc.).
+
 
 ---
 
