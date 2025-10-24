@@ -1,0 +1,40 @@
+// ========================================
+// server/prisma/schema.prisma
+// ========================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+//  MODÈLE USER - Définit la structure de la table "users"
+model User {
+  id        String   @id @default(uuid())
+  // @id : Marque ce champ comme clé primaire
+  // @default(uuid()) : Génère automatiquement un UUID unique
+  
+  // EMAIL - Doit être unique dans toute la base
+  email     String   @unique
+  
+  // USERNAME - Nom d'utilisateur unique
+  username  String   @unique
+  
+  //  PASSWORD - Mot de passe hashé 
+  password  String
+  
+  // CREATED_AT - Date de création du compte
+  createdAt DateTime @default(now())
+  // @default(now()) : S'ajoute automatiquement au moment de la création
+  
+  // UPDATED_AT - Date de dernière modification
+  updatedAt DateTime @updatedAt
+  // @updatedAt : Prisma met à jour automatiquement ce champ
+
+  //  MAPPING - Nom de la table dans MySQL
+  @@map("users")
+  // Par défaut Prisma créerait "User", on force "users" 
+}
